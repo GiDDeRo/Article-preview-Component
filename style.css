@@ -294,13 +294,11 @@ footer {
     }
 }
 @media (max-width: 320px) {
-    main:hover {
-        transform: none;
-    }
-}
-@media (max-width: 270px) {
     main {
         width: 95%;
+    }
+        main:hover {
+        transform: none;
     }
     .container1 {
         height: 30%;
