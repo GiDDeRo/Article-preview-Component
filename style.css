@@ -12,7 +12,6 @@ body {
 }
 a {
     text-decoration: none;
-    color: white;
 }
 main {
     width:50rem;
@@ -44,7 +43,7 @@ main:hover {
     display: grid;
     align-content: space-between;
 }
-h1, h4 {
+h1 {
     color: hsl(217, 19%, 35%);
 }
 article {
@@ -74,8 +73,8 @@ article p {
     align-items: center;
 }
 .avatar {
-    height: 2rem;
-    width: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     background-image: url(avatar-michelle.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -83,14 +82,18 @@ article p {
     border: none;
 }
 .info {    
-    margin-left: .5rem;
+    margin-left: 1rem;
 }
-.info h4 {
+.info h4 a {
     font-size: 15px;
+    color: hsl(217, 19%, 35%);
 }
 .info p {
     font-size: 13px;
     color: hsl(212, 23%, 69%);
+}
+.share {
+    position: relative;
 }
 .share button {
     padding: .5rem;
@@ -98,36 +101,36 @@ article p {
     border: none;
     background-color: hsl(210, 46%, 95%);
     cursor: pointer;
-    transition: .5s ease;
-}
-.share button:hover {
-    background-color: hsl(217, 19%, 35%);
+    transition: all .25s ease;
 }
 .share button.active {
     background-color: hsl(217, 19%, 35%);
 }
-.share button i {
+.share button > i {
     color: hsl(217, 19%, 35%);
+    transition: all .25s ease;
 }
-.share-icons {
+.share button > i.active {
+    color: hsl(210, 46%, 95%);
+}
+.socials {
     display: flex;
     background-color: hsl(217, 19%, 35%);
     align-items: center;
-    padding: .7rem 1.5rem;
+    padding: 1rem 1.7rem;
     border-radius: .5rem;
     position: absolute;
-    bottom: calc(100% + 28px);
-    transform: translate(55%, 30%);
-    transform-origin: bottom;
-    left: 40%;
+    bottom: calc(100% + 20px);
+    transform: translate(-50%, 0%);
+    left: 50%;
     box-shadow: 0px 5px 10px hsla(212, 23%, 69%, .5);
     visibility: hidden;
-    transition: all 0.25 ease;
+    transition-delay: .07s;
 }
-.share-icons.active {
+.socials.active {
     visibility: visible;
 }
-.share-icons::after {
+.socials::after {
     content: '';
     background-color: hsl(217, 19%, 35%);
     width: 15px;
@@ -136,21 +139,22 @@ article p {
     top: 100%;
     left: 50%;
     transform: translate(-50%, -60%) rotate(45deg);
-    box-shadow: 0px 5px 10px hsla(212, 23%, 69%, .5);
+    box-shadow: 5px 5px 10px hsla(212, 23%, 69%, .5);
 }
-.share-icons p, .socials  i {
+.socials p, .socials-icons  i {
     margin: .2rem;
 }
-.share-icons p {
+.socials p {
     font-size: 12px;
     letter-spacing: 5px;
     color: hsl(212, 23%, 69%);
 }
-.socials {
+.socials-icons {
     margin-left: .5rem;
+    display: flex;
 }
-.socials i {
-    margin: 0 .3rem;
+.socials-icons i {
+    margin: 0 .5rem;
     cursor: pointer;
     color: white;
 }
@@ -166,4 +170,180 @@ footer {
 .attribution a { 
     color: hsl(228, 45%, 44%); 
 }
+@media (max-width:950px) {
+    body {
+        justify-items: center;
+    }
+    main{
+        width: 80%;
+    }
+    main:hover {
+        transform: scale(1.07);
+    }
+    .container2 {
+        padding: 2rem;
+    }
+    article p {
+        font-size: 14px;
+    }
+    .socials {
+        padding: 1rem;
+    }
+}
+@media (max-width:850px) {
+    body {
+        justify-items: center;
+    }
+    main {
+        width: 90%;
+    }
+    .container2 {
+        padding: 1.5rem;
+        overflow: hidden;
+    }
+    .socials {
+        padding: 1rem 0;
+    }
+    .socials p {
+        display: none;
+    }
+    .socials-icons {
+        display: block;
+    }
+    .socials-icons i{
+        margin: 1rem;
+    }
+}
+@media (max-width: 700px) {
+    body {
+        justify-items: center;
+        height: 100vh;
+    }
+    main {
+        flex-direction: column;
+        width: 18.75rem;
+        height: 30rem;
+        overflow: hidden;
+    }
+    main:hover {
+        transform: scale(1.1);
+    }
+    .container1 {
+        width: 100%;
+        height: 40%;
+        border-radius: .7rem .7rem 0 0;
+    }
+    .container2 {
+        width: 100%;
+        height: 60%;
+        padding: 1rem 1.5rem;
+        overflow: hidden;
+    }
+    article {
+        padding-top: .5rem;
+    }
+    article h1 {
+        font-size: 17px;
+        line-height: 23px;
+    }
+    article p {
+        margin-top: .5rem;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .info h4 {
+        font-size: 14px;
+    }
+    .info p {
+        font-size: 12px;
+    }
+    .share button {
+        padding: .6rem;
+    }
+    .share button.active {
+        background-color: hsla(210, 46%, 95%, .4);
+    }
+    .share button > i {
+        font-size: 1rem;
+    }
+    .share {
+        position: static;
+        z-index: 1;
+    }
+    .socials {
+        bottom: -1rem;
+        width: 21rem;
+        padding: 1.3rem 2rem;
+        z-index: -1;
+        border-radius: 0;
+        transition: forward 1s ease;
+    }
+    .socials p, .socials-icons {
+        margin-left: .7rem;
+    }
+    .socials p {
+        display: flex;
+        font-size: 15px;
+    }
+    .socials-icons {
+        margin-left: .3rem;
+    }
+    .socials-icons i{
+        margin: 0 .5rem;
+        font-size: 23px;
+    }
+}
+@media (max-width: 320px) {
+    main:hover {
+        transform: none;
+    }
+}
+@media (max-width: 270px) {
+    main {
+        width: 95%;
+    }
+    .container1 {
+        height: 30%;
+    }
+    .container2 {
+        height: 75%;
+        padding: 1rem;
+    }
+    article {
+        padding-top: 0rem;
+    }
+    article h1 {
+        font-size: 17px;
+        line-height: 25px;
+    }
+    article p {
+        margin-top: .8rem;
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .info {    
+        margin-left: .5rem;
+    }
+    .share button {
+        padding: .4rem;
+    }
+    .share button i {
+        font-size: 13px;
+    }
+    .socials p, .socials-icons {
+        margin-left: 2rem;
+    }
+    .socials p {
+        display: flex;
+        font-size: 13px;
+    }
+    .socials-icons {
+        margin-left: .3rem;
+    }
+    .socials-icons i{
+        margin: 0 .3rem;
+        font-size: 20px;
+    }
+}
+
 
